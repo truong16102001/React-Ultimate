@@ -6,11 +6,17 @@ function App() {
 const name="Jason"
 const dob = new Date("2001/10/16")
 const profile = [{education:"FPT", major:"IT", gpa:3.5},{education:"UET", major:"IT", gpa:3.6}]
+
+const addNew = (message) => {
+  alert(`Message: ${message}`)
+}
   return (
     <>
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
-      <TodoForm/>
+      <TodoForm
+        addNew={addNew}
+      />
       <TodoData
         name={name}
         dob={dob}
