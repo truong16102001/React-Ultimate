@@ -1,5 +1,5 @@
 const TodoData = (props) => {
-  const { name, dob, todoList } = props; // use object destructuring
+  const { name, dob, todoList, handleDelete, handleUpdate } = props; // use object destructuring
   return (
     <>
       <h3>Name: {name}</h3>
@@ -12,8 +12,8 @@ const TodoData = (props) => {
             return (
               <div className="todo-item" key={item.id}>
                 ID: {item.id} - Value: {item.input}
-                <button onClick={() => onUpdate(item.id)}>Update</button>
-                <button onClick={() => onDelete(item.id)}>Delete</button>
+                <button onClick={() => handleUpdate(item.id)}>Update</button>
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
               </div>
             );
           })}

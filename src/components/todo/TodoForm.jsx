@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 const TodoForm = (props) => {
-  const { addNew } = props;
+  const { handleAdd } = props;
   const [inputValue, setInputValue] = useState(""); // init = empty, similar getter and setter value
 
   const handleClick = () => {
-    addNew(inputValue);
+    handleAdd(inputValue);
     setInputValue("");
   };
 
