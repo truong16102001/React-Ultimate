@@ -1,21 +1,31 @@
-const TodoForm = ({addNew}) => {
-    //addNew("Hello world")
+import { useState } from "react"
+
+const TodoForm = (props) => {
+    const {addNew} = props;
+    const [inputValue, setInputValue] = useState("") // init = empty, similar getter and setter value
+
     const handleClick = () => {
-        console.log("handleClick")
+        addNew(inputValue)
+        setInputValue("")
     }
-    const handleChange = (message) => {
-        console.log("handleChange: " + message)
+
+    const handleChange = (input) => {
+        setInputValue(input) // set entered input to inputValue 
     }
 
     return (
+        <>
         <div className="todo-form">
             <input type="text" 
-                onChange={(event) => {handleChange(event.target.value)}}/>
+                onChange={(event) => {handleChange(event.target.value)}}
+                value={inputValue}/>
             <button
                 style={{cursor:"pointer"}}
                 onClick={handleClick}
             >Add</button>
         </div>
+        <div>Your current input is {inputValue}</div>
+        </>
     )
 }
 

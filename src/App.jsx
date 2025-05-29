@@ -2,14 +2,21 @@ import TodoData from './components/todo/TodoData.jsx'
 import TodoForm from './components/todo/TodoForm.jsx'
 import './components/todo/todo.css'
 import reactLogo from './assets/react.svg'
+import { useState } from 'react'
 function App() {
 const name="Jason"
 const dob = new Date("2001/10/16")
-const profile = [{education:"FPT", major:"IT", gpa:3.5},{education:"UET", major:"IT", gpa:3.6}]
+const [todoList, setTodoList] = useState([])
 
-const addNew = (message) => {
-  alert(`Message: ${message}`)
+const addNew = (inputValue) => {
+  const newInput = {id: randomIntFromInterval(1,1000000), input: inputValue}
+  setTodoList([...todoList, newInput]); // use spread to add newInput to array
 }
+
+const randomIntFromInterval = (min, max) => { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
   return (
     <>
     <div className="todo-container">
@@ -20,7 +27,7 @@ const addNew = (message) => {
       <TodoData
         name={name}
         dob={dob}
-        profile={profile}
+        todoList={todoList}
       />
       <div className="todo-image">
         <img src={reactLogo} className='logo'/>
