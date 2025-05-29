@@ -1,10 +1,7 @@
 const TodoData = (props) => {
-  const { name, dob, todoList, handleDelete, handleUpdate } = props; // use object destructuring
+  const { todoList, handleDelete, handleUpdate } = props; // use object destructuring
   return (
     <>
-      <h3>Name: {name}</h3>
-      <h3>Date of birth: {dob.toDateString()}</h3>
-
       {todoList.length !== 0 && (
         <div className="todo-data">
           <h3>Your Input List: </h3>
