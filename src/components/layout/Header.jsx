@@ -11,7 +11,7 @@ const Header = () => {
           <NavLink to="/manage/users">Users</NavLink>
         </li>
         <li>
-          <NavLink to="/todo">Todo App</NavLink>
+          <NavLink to="/manage/books">Books</NavLink>
         </li>
       </ul>
     </>

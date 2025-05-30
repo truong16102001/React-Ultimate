@@ -7,14 +7,18 @@ import RegisterPage from "./pages/Register.jsx";
 import UserPage from "./pages/Users.jsx";
 import TodoApp from "./components/todo/TodoApp.jsx";
 import "./styles/global.css";
+import ErrorPage from "./pages/Error.jsx";
+import BookPage from "./pages/Books.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
+      { index: true, element: <TodoApp /> }, // default render in homepage
       { path: "/manage/users", element: <UserPage /> },
-      { path: "/todo", element: <TodoApp /> },
+      { path: "/manage/books", element: <BookPage /> },
     ],
   },
   {
